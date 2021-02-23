@@ -1,0 +1,9 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: consume-nacos-service #注册到注册中心的名字 消费者
+  cloud:
+    nacos:
+      discovery:
+        server-addr:  8.129.51.229:8848 #nacos的ip地址

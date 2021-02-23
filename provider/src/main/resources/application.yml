@@ -1,0 +1,38 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: provide-nacos-service #注册到注册中心的名字  提供者
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 8.129.51.229:8848 #nacos的ip地址
+   #jdbc配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://8.129.51.229/k?useUnicode=true&characterEncoding=utf8&useOldAliasMetadataBehavior=true&useTimezone=true&serverTimezone=GMT%2B8&useLegacyDatetimeCode=false #jdbc:mysql://8.129.51.229/k?useunicode=true&characterEncoding=utf8&useOldAliasMetadataBehavior=true
+    username: k
+    password: longtao
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+  servlet:
+    multipart:
+      max-file-size: 1050MB
+      max-request-size: 1050MB
+    #数据库框架
+mybatis-plus:
+  mapper-locations: classpath:Mapper/*.xml  #mybatis指定数据库xml文件
+  typeAliasesPackage: com.lt.Entity      #指定实体类
+  configuration:
+    map-underscore-to-camel-case: false  #关闭驼峰，实体类的 *_*映射
+    auto-mapping-behavior: full
+    use-generated-keys: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 0
+      logic-not-delete-value: 1
