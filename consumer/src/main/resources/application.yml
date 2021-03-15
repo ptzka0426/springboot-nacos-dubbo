@@ -2,8 +2,8 @@ server:
   port: 8002
 spring:
   application:
-    name: consume-nacos-service #×¢²áµ½×¢²áÖĞĞÄµÄÃû×Ö Ïû·ÑÕß
+    name: consume-nacos-service #æ³¨å†Œåˆ°æ³¨å†Œä¸­å¿ƒçš„åå­— æ¶ˆè´¹è€…
   cloud:
     nacos:
       discovery:
-        server-addr:  8.129.51.229:8848 #nacosµÄipµØÖ·
+        server-addr:  8.129.51.229:8848 #nacosçš„ipåœ°å€

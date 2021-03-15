@@ -2,12 +2,12 @@ server:
   port: 8001
 spring:
   application:
-    name: provide-nacos-service #×¢²áµ½×¢²áÖĞĞÄµÄÃû×Ö  Ìá¹©Õß
+    name: provide-nacos-service #æ³¨å†Œåˆ°æ³¨å†Œä¸­å¿ƒçš„åå­—  æä¾›è€…
   cloud:
     nacos:
       discovery:
-        server-addr: 8.129.51.229:8848 #nacosµÄipµØÖ·
-   #jdbcÅäÖÃ
+        server-addr: 8.129.51.229:8848 #nacosçš„ipåœ°å€
+    #jdbcé…ç½®
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://8.129.51.229/k?useUnicode=true&characterEncoding=utf8&useOldAliasMetadataBehavior=true&useTimezone=true&serverTimezone=GMT%2B8&useLegacyDatetimeCode=false #jdbc:mysql://8.129.51.229/k?useunicode=true&characterEncoding=utf8&useOldAliasMetadataBehavior=true
@@ -22,12 +22,12 @@ spring:
     multipart:
       max-file-size: 1050MB
       max-request-size: 1050MB
-    #Êı¾İ¿â¿ò¼Ü
+    #æ•°æ®åº“æ¡†æ¶
 mybatis-plus:
-  mapper-locations: classpath:Mapper/*.xml  #mybatisÖ¸¶¨Êı¾İ¿âxmlÎÄ¼ş
-  typeAliasesPackage: com.lt.Entity      #Ö¸¶¨ÊµÌåÀà
+  mapper-locations: classpath:Mapper/*.xml  #mybatisæŒ‡å®šæ•°æ®åº“xmlæ–‡ä»¶
+  typeAliasesPackage: com.lt.Entity      #æŒ‡å®šå®ä½“ç±»
   configuration:
-    map-underscore-to-camel-case: false  #¹Ø±ÕÍÕ·å£¬ÊµÌåÀàµÄ *_*Ó³Éä
+    map-underscore-to-camel-case: false  #å…³é—­é©¼å³°ï¼Œå®ä½“ç±»çš„ *_*æ˜ å°„
     auto-mapping-behavior: full
     use-generated-keys: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -36,3 +36,14 @@ mybatis-plus:
       id-type: auto
       logic-delete-value: 0
       logic-not-delete-value: 1
+
+knife4j:
+  # å¼€å¯å¢å¼ºé…ç½®
+  enable: true
+  # å¼€å¯Swaggerçš„Basicè®¤è¯åŠŸèƒ½,é»˜è®¤æ˜¯false
+  basic:
+    enable: true
+    # Basicè®¤è¯ç”¨æˆ·å
+    username: boran
+    # Basicè®¤è¯å¯†ç 
+    password: boran123
