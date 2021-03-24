@@ -27,21 +27,30 @@
 			<artifactId>knife4j-spring-boot-starter</artifactId>
 			<version>2.0.7</version>
 		</dependency>
+		<!--阿里nacos-->
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
 			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
 			<version>2.2.5.RELEASE</version>
 		</dependency>
+		<!-- spring cloud openfeign 依赖 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 			<version>2.2.6.RELEASE</version>
+		</dependency>
+		<!-- spring cloud alibaba sentinel 依赖 -->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+			<version>2.2.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 	</dependencies>
 
 	<build>

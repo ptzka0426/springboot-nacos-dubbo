@@ -1,13 +1,13 @@
 package com.lt.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.lt.client.userClient;
+import com.lt.client.userClientImpl;
 import com.lt.common.response.Result;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,13 +24,18 @@ public class Controller {
     @Autowired
     private userClient userClient;
 
-
     //测试
-    @ApiImplicitParam(name = "name", required = true)
-    @ApiOperation(value = "握手成功！")
-    @RequestMapping(value = "/hello-customer",method = RequestMethod.POST)
-    public ResponseEntity<String> hello(@RequestParam(value = "name") String name) {
-        String text="8002调用,"+userClient.hello().getData();
-        return ResponseEntity.ok("8002");
+    //@SentinelResource(value = "hello-customer", blockHandler = "selectProductByIdFallback")
+    @SentinelResource(value = "hello-customer", blockHandler = "selectProductByIdFallback")
+    @RequestMapping(value = "/hello-customer", method = RequestMethod.POST)
+    public Result hellos(@RequestParam(value = "name") String name) {
+        System.out.println(userClient.hello(name).getMessage());
+        userClient.hello(name);
+        return Result.SUCCESS("8002 调用");
+    }
+
+    public Result selectProductByIdFallback(String name, BlockException exception) {
+        System.out.println("product-service 服务的 selectProductById 方法出现异常，异常信息如下：" + exception);
+        return Result.FAIL("服务熔断降级处理-托底数据");
     }
 }

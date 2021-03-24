@@ -1,22 +1,31 @@
 package com.lt.Config;
 
+import com.github.xiaoymin.knife4j.spring.extension.OpenApiExtensionResolver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 /**
  * @Author LT
- * @create 2021-03-15 17:17
- * Knife4jConfiguration 和 SwaggerConfiguration（增强） 存在一个即可
+ * @create 2021-03-16 9:50
  */
-/*@Configuration
-@EnableSwagger2WebMvc*/
-public class Knife4jConfiguration {
+@Configuration
+@EnableSwagger2WebMvc
+public class SwaggerConfiguration {
+
+    private final OpenApiExtensionResolver openApiExtensionResolver;
+
+    @Autowired
+    public SwaggerConfiguration(OpenApiExtensionResolver openApiExtensionResolver) {
+        this.openApiExtensionResolver = openApiExtensionResolver;
+    }
 
     @Bean(value = "defaultApi2")
     public Docket defaultApi2() {
@@ -29,12 +38,22 @@ public class Knife4jConfiguration {
                         .version("1.0")
                         .build())
                 //分组名称
-                .groupName("springboot项目接口")
+                .groupName("nacos项目接口0.01x")
                 .select()
                 //这里指定Controller扫描包路径
                 .apis(RequestHandlerSelectors.basePackage("com.lt.Controller"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                //.title("swagger-bootstrap-ui-demo RESTful APIs")
+                .description("# swagger-bootstrap-ui-demo RESTful APIs")
+                .termsOfServiceUrl("http://www.xx.com/")
+                .contact("xx@qq.com")
+                .version("1.0")
+                .build();
     }
 }

@@ -1,5 +1,6 @@
 package com.lt;
 
+import com.alibaba.csp.sentinel.transport.config.TransportConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
