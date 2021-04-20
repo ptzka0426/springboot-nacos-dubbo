@@ -19,7 +19,7 @@ import java.time.Duration;
  * @Author LT
  * @create 2021-02-02 10:55
  */
-@Configuration
+/*@Configuration*/
 public class RedisAutoConfig {
 
     @Bean

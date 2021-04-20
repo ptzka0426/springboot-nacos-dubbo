@@ -1,5 +1,6 @@
 package com.lt.Util;
 
+
 import org.springframework.stereotype.Component;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,9 @@ import java.util.concurrent.TimeUnit;
  * @Author LT
  * @create 2021-02-02 11:04
  */
-@Component
+/*@Component*/
 public class RedisUtil {
+
 
     @Autowired
     StringRedisTemplate stringRedisTemplate;

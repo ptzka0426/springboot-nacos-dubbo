@@ -22,7 +22,8 @@ import java.util.List;
  * @create 2021-04-01 9:45
  */
 @RestController
-@RequestMapping("/test/")
+@RequestMapping("test")
+//sa-token测试
 public class TextController {
 
 
@@ -35,8 +36,7 @@ public class TextController {
         System.out.println("当前登录账号：" + StpUtil.getLoginIdDefaultNull());
 
         StpUtil.setLoginId(id);            // 在当前会话登录此账号
-        System.out.println("登录成功");
-        System.out.println("当前是否登录：" + StpUtil.isLogin());
+        System.out.println("登录成功");        System.out.println("当前是否登录：" + StpUtil.isLogin());
         System.out.println("当前登录账号：" + StpUtil.getLoginId());
 //		System.out.println("当前登录账号并转为int：" + StpUtil.getLoginIdAsInt());
         System.out.println("当前登录设备：" + StpUtil.getLoginDevice());

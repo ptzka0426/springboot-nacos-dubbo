@@ -17,5 +17,8 @@ spring:
 feign:
   sentinel:
     enabled: true
-
+rocketmq:
+  name-server: 8.129.51.229:9876
+  producer:
+    group: my-group-lt
 
